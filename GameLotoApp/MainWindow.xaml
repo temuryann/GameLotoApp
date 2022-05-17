@@ -1,0 +1,31 @@
+﻿<Window x:Class="GameLotoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameLotoApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid PreviewKeyDown="Grid_PreviewKeyDown">
+        <Label FontWeight="Bold" FontSize="22" Content="Hi Dear Player !" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="171"/>
+        <Label FontSize="22" Content="Please Insert Your Name" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameTxt"  FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,124,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" Height="35" PreviewTextInput="NameTxt_PreviewTextInput" MaxLength="15"/>
+        <Label FontSize="22" Content="Please Insert Your Wallet Amount" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="AmountTxt"  FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,242,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" Height="35" PreviewTextInput="AmountTxt_PreviewTextInput" MaxLength="7"/>
+        <Button x:Name="ContinueBtn" FontSize="16" Content="Continue" HorizontalAlignment="Center" Margin="0,312,0,0" VerticalAlignment="Top" Height="26" Width="141" Click="ContinueBtn_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text.Length, ElementName=NameTxt, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text.Length, ElementName=AmountTxt, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <ProgressBar x:Name="ContinueProgressBar" HorizontalAlignment="Center" Height="22" Margin="0,374,0,0" VerticalAlignment="Top" Width="400"/>
+    </Grid>
+</Window>
