@@ -1,1 +1,1 @@
-Loto Game (Casino Game), with WinForm App
+Loto Game (Casino Game), with WPF App
