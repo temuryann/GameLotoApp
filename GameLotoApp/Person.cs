@@ -8,6 +8,7 @@ namespace GameLotoApp
 {
     internal static class Person
     {
+        // this is how git works
         internal static string Name { get; set; }
         internal static string Amount { get; set; }
     }
